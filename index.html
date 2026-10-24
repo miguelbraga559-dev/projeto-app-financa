@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App finanças</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <h1>Finanças App</h1>
@@ -60,6 +62,16 @@
                 </div>
             </div>
         </section>
+
+        <section class="despesas" id="despesas">
+            <h2>despesas cadastradas</h2>
+            <p class="lista-vazia" id="lista-vazia">nenhuma despesa cadastrada ainda.</p>
+            <ul class="lista-despesas" id="lista-despesas">
+                <!--as despesas serão inseridas aqui pelo js-->
+            </ul>
+            <button type="button" id="btn-limpar" class="btn-perigo">limpar tudo</button>
+        </section>
     </main>
 </body>
+
 </html>
