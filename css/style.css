@@ -1,0 +1,176 @@
+/* ===== Variáveis ===== */
+:root {
+    --fundo: #EEF2F0;
+    --superficie: #FFFFFF;
+    --texto: #12332E;
+    --texto-suave: #5B726D;
+    --borda: #D5E0DC;
+    --principal: #0E5A52;
+    --perigo: #C2432D;
+}
+
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    background-color: var(--fundo);
+    color: var(--texto);
+}
+
+header {
+    text-align: center;
+    padding: 32px 16px 8px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 4px 0 0;
+    color: var(--texto-suave);
+}
+
+/* ===== Layout ===== */
+main {
+    display: grid;
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+}
+
+section {
+    background-color: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+section h2 {
+    margin: 0 0 14px;
+    font-size: 1.15rem;
+}
+
+/* ===== Formulários ===== */
+form {
+    display: grid;
+    gap: 4px;
+}
+
+#form-despesa {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--borda);
+}
+
+label {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    color: var(--texto);
+    background-color: var(--fundo);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: 2px;
+}
+
+button {
+    margin-top: 12px;
+    padding: 11px 16px;
+    font: inherit;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: var(--principal);
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* ===== Resumo ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.card {
+    padding: 14px;
+    background-color: var(--fundo);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+}
+
+.card-titulo {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+.card-valor {
+    display: block;
+    margin-top: 2px;
+    font-size: 1.3rem;
+}
+
+/* ===== Lista de despesas ===== */
+.lista-vazia {
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+.lista-despesas {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista-despesas li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--borda);
+}
+
+.lista-despesas li:last-child {
+    border-bottom: 0;
+}
+
+.btn-perigo {
+    background-color: transparent;
+    color: var(--perigo);
+    border: 1px solid var(--perigo);
+}
+
+/* ===== Telas maiores ===== */
+@media (min-width: 760px) {
+    main {
+        grid-template-columns: 5fr 7fr;
+        align-items: start;
+    }
+
+    #orcamento {
+        grid-row: span 2;
+    }
+}
