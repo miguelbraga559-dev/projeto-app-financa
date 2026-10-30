@@ -11,8 +11,8 @@ function carregarRenda () {
 
     }
 //Despesas
-function salvarDespesas (despesas) {
-    localStorage.setItem (CHAVE_DESPESAS, JSON.stringify(Despesas));
+function salvarDespesas(despesas) {
+    localStorage.setItem(CHAVE_DESPESAS, JSON.stringify(despesas));
 }
 function carregarDespesas () {
     const dados =localStorage.getItem(CHAVE_DESPESAS);
