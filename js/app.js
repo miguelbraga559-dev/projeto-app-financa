@@ -52,3 +52,45 @@ function atualizarResumo () {
         listaDespesas.appendChild(item);
     }
 }
+// formulário da renda 
+formRenda.addEventListener ("submit",function (evento) {
+    evento.preventDefault ();
+    const renda = Number(inputRenda.value);
+    salvarRenda (renda);
+    atualizarResumo();
+});
+//formulario de despesas 
+formDespesa.addEventListener ("submit",function (evento){
+evento.preventDefault();
+
+const novaDespesa = {
+    descricao:inputDescricao.value.trim(),
+    valor:Number(inputValorDespesa.value),
+    categoria: selectCategoria.value
+};
+const despesas = carregarDespesas();
+despesas.push(novaDespesa);
+salvarDespesas(despesas);
+
+formDespesa.reset();
+atualizarResumo();
+mostrarDespesas();
+});
+// ===== Botão limpar tudo =====
+botaoLimpar.addEventListener("click", function () {
+    if (confirm("Apagar a renda e todas as despesas?")) {
+        limparDados();
+        formRenda.reset();
+        atualizarResumo();
+        mostrarDespesas();
+    }
+});
+
+// ===== Inicialização =====
+const rendaSalva = carregarRenda();
+if (rendaSalva > 0) {
+    inputRenda.value = rendaSalva;
+}
+
+atualizarResumo();
+mostrarDespesas();
