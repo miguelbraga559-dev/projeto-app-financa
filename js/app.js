@@ -59,28 +59,43 @@ formRenda.addEventListener ("submit",function (evento) {
     salvarRenda (renda);
     atualizarResumo();
 });
-//formulario de despesas 
-formDespesa.addEventListener ("submit",function (evento){
-evento.preventDefault();
 
-const novaDespesa = {
-    descricao:inputDescricao.value.trim(),
-    valor:Number(inputValorDespesa.value),
-    categoria: selectCategoria.value
-};
-const despesas = carregarDespesas();
-despesas.push(novaDespesa);
-salvarDespesas(despesas);
+// ===== Formulário de despesas =====
+formDespesa.addEventListener("submit", function (evento) {
+    evento.preventDefault();
 
-formDespesa.reset();
-atualizarResumo();
-mostrarDespesas();
+    const descricao = inputDescricao.value.trim();
+    const valor = Number(inputValorDespesa.value);
+
+    if (descricao === "") {
+        alert("Informe uma descrição para a despesa.");
+        return;
+    }
+
+    if (valor <= 0) {
+        alert("O valor da despesa precisa ser maior que zero.");
+        return;
+    }
+
+    const novaDespesa = {
+        descricao: descricao,
+        valor: valor,
+        categoria: selectCategoria.value
+    };
+
+    const despesas = carregarDespesas();
+    despesas.push(novaDespesa);
+    salvarDespesas(despesas);
+
+    formDespesa.reset();
+
+    atualizarResumo();
+    mostrarDespesas();
 });
-// ===== Botão limpar tudo =====
+// ===== Botão limpar despesas =====
 botaoLimpar.addEventListener("click", function () {
-    if (confirm("Apagar a renda e todas as despesas?")) {
-        limparDados();
-        formRenda.reset();
+    if (confirm("Apagar todas as despesas?")) {
+        salvarDespesas([]);
         atualizarResumo();
         mostrarDespesas();
     }
