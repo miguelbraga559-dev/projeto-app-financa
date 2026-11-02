@@ -94,3 +94,32 @@ if (rendaSalva > 0) {
 
 atualizarResumo();
 mostrarDespesas();
+
+// ===== Simulador de investimentos =====
+const formSimulador = document.getElementById("form-simulador");
+const inputSimInicial = document.getElementById("sim-inicial");
+const inputSimAporte = document.getElementById("sim-aporte");
+const inputSimTaxa = document.getElementById("sim-taxa");
+const inputSimPrazo = document.getElementById("sim-prazo");
+
+const areaResultado = document.getElementById("resultado-simulador");
+const simResInvestido = document.getElementById("sim-res-investido");
+const simResJuros = document.getElementById("sim-res-juros");
+const simResFinal = document.getElementById("sim-res-final");
+
+formSimulador.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    const resultado = calcularInvestimento(
+        Number(inputSimInicial.value),
+        Number(inputSimAporte.value),
+        Number(inputSimTaxa.value),
+        Number(inputSimPrazo.value)
+    );
+
+    simResInvestido.textContent = formatarMoeda(resultado.totalInvestido);
+    simResJuros.textContent = formatarMoeda(resultado.juros);
+    simResFinal.textContent = formatarMoeda(resultado.valorFinal);
+
+    areaResultado.hidden = false;
+});
