@@ -162,6 +162,29 @@ button:hover {
     color: var(--perigo);
     border: 1px solid var(--perigo);
 }
+/* ===== Simulador ===== */
+#form-simulador {
+    max-width: 480px;
+}
+
+.resultado {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--borda);
+}
+
+.resultado h3 {
+    margin: 0 0 12px;
+    font-size: 1rem;
+}
+
+.resultado .cards {
+    grid-template-columns: 1fr;
+}
+
+#sim-res-final {
+    color: var(--principal);
+}
 
 /* ===== Telas maiores ===== */
 @media (min-width: 760px) {
@@ -172,5 +195,13 @@ button:hover {
 
     #orcamento {
         grid-row: span 2;
+    }
+
+    #simulador {
+        grid-column: 1 / -1;
+    }
+
+    .resultado .cards {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
